@@ -7,9 +7,10 @@
 
     <logger name="com.codenamebear" level="DEBUG"/>
 
-    <logger name="org.springframework" level="DEBUG"/>
+    <logger name="org.springframework" level="DEBUG" />
 
-    <root level="INFO">
+    <!-- Make root level "DEBUG" for basic info, or "TRACE" for more detailed info  -->
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
