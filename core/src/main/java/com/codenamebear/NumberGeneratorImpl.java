@@ -1,6 +1,7 @@
 package com.codenamebear;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
@@ -8,8 +9,16 @@ import java.util.Random;
 @Component
 public class NumberGeneratorImpl implements NumberGenerator{
 
+    // == Constants ==
+
     private final Random random = new Random();
-    private int maxNumber = 100;
+    private final int maxNumber;
+
+    // == Constructors ==
+    @Autowired
+    public NumberGeneratorImpl(int maxNumber){
+        this.maxNumber = maxNumber;
+    }
 
     @Override
     public int next() {

@@ -1,5 +1,8 @@
 com/codenamebear/Game.class
+com/codenamebear/config/GameConfig.class
 com/codenamebear/GameImpl.class
-com/codenamebear/Main.class
+com/codenamebear/MessageGenerator.class
+com/codenamebear/config/AppConfig.class
 com/codenamebear/NumberGenerator.class
 com/codenamebear/NumberGeneratorImpl.class
+com/codenamebear/MessageGeneratorImpl.class

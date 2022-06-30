@@ -16,10 +16,14 @@ public class MessageGeneratorImpl implements MessageGenerator{
 
     // == Fields ==
 
-    @Autowired
-    private Game game;
+    private final Game game;
 
-    private int guessCount = 10;
+    // == Constructors ==
+
+    @Autowired
+    public MessageGeneratorImpl(Game game) {
+        this.game = game;
+    }
 
     // == Init Method ==
 
@@ -32,11 +36,59 @@ public class MessageGeneratorImpl implements MessageGenerator{
 
     @Override
     public String getMainMessage() {
-        return "getMainMessageCalled";
+        return "Number is between " +
+                game.getSmallest() +
+                " and " +
+                game.getBiggest() +
+                ". Can you guess it?";
     }
 
     @Override
     public String getResultMessage() {
-        return "getResultMessageCalled";
+        if(game.isGameWon()){
+
+            return "You guessed it! The number was " +
+                    game.getNumber() +
+                    "!";
+
+        } else if(game.isGameLost()){
+
+            return "You lost. The number was " +
+                    game.getNumber() +
+                    "!";
+
+        } else if(!game.isValidNumberRange()){
+
+            return "Invalid number!";
+
+        } else if(game.getRemainingGuesses() == game.getGuessCount()){
+
+            return "What is your first guess?";
+
+        }
+
+        String direction = "Lower";
+
+        if(game.getGuess() < game.getNumber()){
+
+            direction = "Higher";
+
+        }
+
+        String guessWord = "guesses";
+
+        if(game.getRemainingGuesses() == 1){
+
+            guessWord = "guess";
+
+        }
+
+        return "Guess " +
+                direction +
+                "! You have " +
+                game.getRemainingGuesses() +
+                " " +
+                guessWord +
+                " left!";
     }
 }

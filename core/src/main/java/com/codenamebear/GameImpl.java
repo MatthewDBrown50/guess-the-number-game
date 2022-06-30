@@ -16,16 +16,22 @@ public class GameImpl implements Game {
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
     // == Fields ==
-    @Autowired
-    private NumberGenerator numberGenerator;
+    private final NumberGenerator numberGenerator;
 
-    private int guessCount = 10;
+    private final int guessCount;
     private int number;
     private int guess;
     private int smallest;
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
+
+    // == Constructors ==
+    @Autowired
+    public GameImpl(NumberGenerator numberGenerator, int guessCount){
+        this.numberGenerator = numberGenerator;
+        this.guessCount = guessCount;
+    }
 
     // == Init Method ==
 
@@ -75,6 +81,11 @@ public class GameImpl implements Game {
     @Override
     public int getRemainingGuesses() {
         return this.remainingGuesses;
+    }
+
+    @Override
+    public int getGuessCount() {
+        return this.guessCount;
     }
 
     @Override
