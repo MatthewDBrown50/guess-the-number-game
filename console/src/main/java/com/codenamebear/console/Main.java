@@ -18,11 +18,5 @@ public class Main {
 
         MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
 
-        System.out.println(messageGenerator.getMainMessage());
-        log.info("getMainMessage() evoked.");
-
-        System.out.println(messageGenerator.getResultMessage());
-        log.info("getResultMessage() evoked.");
-
     }
 }

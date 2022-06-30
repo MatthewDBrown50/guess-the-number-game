@@ -57,8 +57,9 @@ public class ConsoleNumberGuess {
                 System.out.println(messageGenerator.getResultMessage());
                 System.out.println("Play again? y/n");
 
-                String playAgainString = scanner.nextLine().trim();
-                if(!playAgainString.equalsIgnoreCase("y")){
+                char userChoice = scanner.nextLine().trim().charAt(0);
+                boolean playAgain = (userChoice == 'y');
+                if(!playAgain){
                     break;
                 }
 
