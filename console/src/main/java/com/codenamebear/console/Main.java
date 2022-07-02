@@ -1,22 +1,19 @@
 package com.codenamebear.console;
 
-import com.codenamebear.config.AppConfig;
-import com.codenamebear.MessageGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.codenamebear.config.GameConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+@Slf4j // Establish Slf4j logger via lombok
 public class Main {
-
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
 
         // create annotation context (container)
-        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
 
-        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
+        context.close();
 
     }
 }

@@ -2,8 +2,7 @@ package com.codenamebear.console;
 
 import com.codenamebear.Game;
 import com.codenamebear.MessageGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
@@ -11,14 +10,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Slf4j
 @Component
 public class ConsoleNumberGuess {
 
     // == Constants ==
-
-    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
-
-    // == Fields ==
 
     private final Game game;
 
@@ -58,7 +54,7 @@ public class ConsoleNumberGuess {
                 System.out.println("Play again? y/n");
 
                 char userChoice = scanner.nextLine().trim().charAt(0);
-                boolean playAgain = (userChoice == 'y');
+                boolean playAgain = (userChoice == 'y' || userChoice == 'Y');
                 if(!playAgain){
                     break;
                 }

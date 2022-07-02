@@ -7,4 +7,6 @@ public interface NumberGenerator {
 
     int getMaxNumber();
 
+    int getMinNumber();
+
 }
